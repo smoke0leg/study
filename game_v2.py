@@ -38,7 +38,7 @@ def score_game(predict_random) -> int:
     
     for number in random_array:
         count_ls.append(predict_random(number))
-        
+
     score = int(np.mean(count_ls))
     print(f'Algorytm guess the number at mean by: {score} trys')
     return(score)
