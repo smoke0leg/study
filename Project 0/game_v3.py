@@ -12,30 +12,28 @@ def predict_random(number:int=1) -> int:
     Returns:
         int: count fo trys
     """
-    count = 1
-    predict_number = 50
-    # prev_predict = 100
-    n = 50
+    
+    count = 1 #Trys count
+    predict_number = 50 #First predict number
+    step = 50 #Step for change predict number
+    
     while True:
-        count+=1
-        n/=2
+        count+=1 
+        step/=2 
         prev_predict = predict_number
-
-        if predict_number < number:
-            predict_number = int(predict_number + n)
+           
+        if predict_number < number: 
+            predict_number = int(predict_number + step)
             if predict_number == prev_predict:
-                predict_number+=1 
+                predict_number+=1
+                 
         elif predict_number > number:
-            predict_number = int(predict_number - n)
+            predict_number = int(predict_number - step)
             if predict_number == prev_predict:
                 prev_predict-=1 
+                
         else: 
             break
-        # n = n**2
-    # while True:
-    #     count+=1
-    #     if number > predict_number:
-    #         predict_number =  
         
     return count
 
