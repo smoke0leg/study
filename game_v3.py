@@ -3,7 +3,7 @@ computer will guess"""
 
 import numpy as np
 
-def predict_random(number:int=1) -> int:
+def predict_algo(number:int=1) -> int:
     """Random guess number
 
     Args:
@@ -13,12 +13,12 @@ def predict_random(number:int=1) -> int:
         int: count fo trys
     """
     
-    count = 1 #Trys count
+    count = 0 #Trys count
     predict_number = 50 #First predict number
     step = 50 #Step for change predict number
     
     while True:
-        count+=1 
+        count+=1
         step/=2 
         prev_predict = predict_number
            
@@ -38,11 +38,11 @@ def predict_random(number:int=1) -> int:
     return count
 
 
-def score_game(predict_random) -> int:
-    """Mean game score
+def score_game(predict_algo) -> int:
+    """Mean result of 1000 games
 
     Args:
-        predict_random (_type_): Guess function
+        predict_algo (_type_): Guess function
 
     Returns:
         int: mean try count
@@ -52,7 +52,7 @@ def score_game(predict_random) -> int:
     random_array = np.random.randint(1, 100, size=(1000))
     
     for number in random_array:
-        count_ls.append(predict_random(number))
+        count_ls.append(predict_algo(number))
 
     score = int(np.mean(count_ls))
     print(f'Algorytm guess the number at mean by: {score} trys')
@@ -60,4 +60,4 @@ def score_game(predict_random) -> int:
 
 if __name__ == '__main__':
 #RUN
-    score_game(predict_random)
+    score_game(predict_algo)
